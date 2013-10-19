@@ -21,6 +21,14 @@ from instacane.twit_ter import Twitter
 from instacane.location import get_location_gmaps
 
 
+def get_config():
+    config = ConfigParser.ConfigParser()
+    readfiles = config.read('instacane.cfg')
+    if len(readfiles) == 1:
+        return config
+    raise RuntimeError('Error finding instacane.cfg.  Where is it??')
+
+
 class MediaLoader(object):
 
     instagram_domains = ['instagr.am', 'instagram.com']
@@ -28,7 +36,7 @@ class MediaLoader(object):
     def __init__(self, *args, **kwargs):
         self.twitter = Twitter()
         self.instagram = Instagram()
-        self.config = self._get_config()
+        self.config = get_config()
         self.blocklist = self._get_block_list()
         self.memcache = memcache.Client(
             [self.config.get('cache', 'hostname')], debug=1)
@@ -200,11 +208,4 @@ class MediaLoader(object):
 
     def _get_domains_query(self):
         return ' OR '.join(self.instagram_domains)
-
-    def _get_config(self):
-        config = ConfigParser.ConfigParser()
-        readfiles = config.read('instacane.cfg')
-        if len(readfiles) == 1:
-            return config
-        raise RuntimeError('Error finding instacane.cfg.  Where is it??')
 

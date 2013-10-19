@@ -15,15 +15,16 @@ import tornado.template
 import tornado.httpserver
 import json
 import memcache
+from instacane.loader import get_config
 
 
 class InstacaneHandler(tornado.web.RequestHandler):
 
-    page_title = "#instacane"
-    page_header = "#instacane"
-    page_subheader = "the story of hurricane sandy told through instagram"
-
     def __init__(self, *args, **kwargs):
+        config = get_config()
+        self.page_header = config.get('headers', 'header')
+        self.page_subheader = config.get('headers', 'subheader')
+        self.page_title = config.get('headers', 'title')
         super(InstacaneHandler, self).__init__(*args, **kwargs)
 
     def get(self):
