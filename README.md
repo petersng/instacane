@@ -60,7 +60,7 @@ The web service essentially pulls the recent data from memcache, runs it through
 
 Possible improvements:
 
-* Better, prettier, more dynamic UI.
+* Better, prettier, more dynamic UI w/no tables!
 * Serve as static page, rather than via Nginx/Tornado.
 * If served as static page, directly upload and serve from S3/Cloudfront, rather than worry about scaling instances/machines.
 * Add support for Instagram video.
