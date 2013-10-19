@@ -23,6 +23,6 @@ def get_location_gmaps(lat, lng):
         formatted_location = formatted_location[(
             formatted_location.find(",") + 2):len(formatted_location)]
         return formatted_location
-    return {}
+    return ""
 
 

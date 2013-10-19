@@ -40,7 +40,13 @@ class MediaLoader(object):
     def load_instacane_data(self):
         items = self._search_keywords_on_twitter()
         output_data = []
-        for item in items:
+        existing_tweet_ids = set([])
+        for item in items[:50]:
+            if item.id in existing_tweet_ids:
+                print("%s already exists in data set, skipping...")
+                continue
+
+            existing_tweet_ids.add(item.id)
             tweet_link = ""
             instagram_link = ""
             if len(item.urls) > 0:
@@ -53,7 +59,6 @@ class MediaLoader(object):
 
             twitter_text = item.text
             twitter_text = twitter_text.replace(tweet_link, '').strip()
-
             twitter_sn = item.user.screen_name
             if twitter_sn in self.blocklist:
                 print("Filtering out twitter user : %s, skipping..." %
@@ -115,7 +120,6 @@ class MediaLoader(object):
                 instagram_location = media_data.location
             image_data['geolocation'] = self._fetch_geolocation(
                 instagram_location)
-
         return image_data
 
     def _is_link_good(self, url):
