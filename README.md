@@ -11,6 +11,9 @@ Here is some of the press about it:
 * http://tcrn.ch/Tqpd3P
 * http://huff.to/WVN66j
 * http://cbsn.ws/PheEj2
+* http://bit.ly/UZToAV
+* http://bit.ly/Yeg0g2
+* http://bit.ly/UauCsB
 
 
 ---
