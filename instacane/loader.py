@@ -192,20 +192,11 @@ class MediaLoader(object):
         return block_list
 
     def _get_keywords_hashtags_query(self):
-        query_items = []
-        keywords = self.config.get('search', 'keywords')
-        if keywords != '':
-            keywords = keywords.split(',')
-            for keyword in keywords:
-                query_items.append(keyword.strip())
-
-        hashtags = self.config.get('search', 'hashtags')
-        if hashtags != '':
-            hashtags = hashtags.split(',')
-            for hashtag in hashtags:
-                query_items.append("#%s" % hashtag.strip())
-
-        return ' OR '.join(query_items)
+        kws_hts = self.config.get('search', 'keywords_hashtags')
+        if kws_hts != '':
+            kws_hts = kws_hts.split(',')
+            kws_hts = [keyword.strip() for keyword in kws_hts]
+        return ' OR '.join(kws_hts)
 
     def _get_domains_query(self):
         return ' OR '.join(self.instagram_domains)
