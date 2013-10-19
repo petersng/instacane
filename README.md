@@ -35,8 +35,8 @@ To fire it up the photo aggregator, you will need these pylibs:
 
 and to create two files:
 
-* /path/to/instacane/instagram.token - 1 line, containing your instagram access token.
-* /path/to/instacane/twitter.token - 4 lines, containing (in order) consumer key, consumer secret, access token, access token secret.
+* /path/to/instacane/instagram.token - 1 line, containing your Instagram access token.
+* /path/to/instacane/twitter.token - 4 lines, containing your Twitter (in order) consumer key, consumer secret, access token, access token secret.
 
 and run this:
 
