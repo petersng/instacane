@@ -5,7 +5,7 @@
 run_service.py
 
 Created by Chris Ackermann + Peter Ng on 2013-10-01.
-Copyright (c) 2013 Chris Ackermann + Peter Ng. All rights reserved.
+Copyright (C) 2013 Chris Ackermann + Peter Ng. All rights reserved.
 
 """
 

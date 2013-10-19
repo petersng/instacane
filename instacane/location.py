@@ -5,7 +5,7 @@
 location.py
 
 Created by Chris Ackermann + Peter Ng on 2011-08-25.
-Copyright (c) 2011 Chris Ackermann + Peter Ng. All rights reserved.
+Copyright (C) 2013 Chris Ackermann + Peter Ng. All rights reserved.
 
 """
 

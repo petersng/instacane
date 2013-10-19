@@ -5,7 +5,7 @@
 twit_ter.py
 
 Created by Chris Ackermann + Peter Ng on 2011-08-25.
-Copyright (c) 2011 Chris Ackermann + Peter Ng. All rights reserved.
+Copyright (c) 2013 Chris Ackermann + Peter Ng. All rights reserved.
 
 """
 

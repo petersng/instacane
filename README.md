@@ -17,7 +17,7 @@ Here is some of the press about it:
 
 You will need:
 
-* Python
+* Python 2.7
 * Memcache
 * MongoDB (Optional)
 * Instagram API token
@@ -61,9 +61,10 @@ The web service essentially pulls the recent data from memcache, runs it through
 Possible improvements:
 
 * Better, prettier, more dynamic UI.
-* Serve as static page, rather than via nginx/Tornado.
+* Serve as static page, rather than via Nginx/Tornado.
 * If served as static page, directly upload and serve from S3/Cloudfront, rather than worry about scaling instances/machines.
 * Add support for Instagram video.
+* Add support for Vines?
 
 
 
