@@ -41,12 +41,24 @@ class MediaLoader(object):
         items = self._search_keywords_on_twitter()
         output_data = []
         existing_tweet_ids = set([])
-        for item in items[:50]:
+        existing_instagram_links = set([])
+        for item in items:
             if item.id in existing_tweet_ids:
-                print("%s already exists in data set, skipping...")
+                print("%s already exists in data set, skipping..." % item.id)
                 continue
 
             existing_tweet_ids.add(item.id)
+
+            if (hasattr(item, 'retweeted_status') and
+                    hasattr(item.retweeted_status, 'id')):
+                parent_tweet_id = item.retweeted_status.id
+                if parent_tweet_id in existing_tweet_ids:
+                    print("Parent tweet %s already exists in data set, skipping..." % (
+                        parent_tweet_id))
+                    continue
+                else:
+                    existing_tweet_ids.add(parent_tweet_id)
+
             tweet_link = ""
             instagram_link = ""
             if len(item.urls) > 0:
@@ -54,9 +66,15 @@ class MediaLoader(object):
                 instagram_link = self._clean_url(item.urls[0].expanded_url)
 
             if not self._is_link_good(instagram_link):
-                print("Instagram link looks bad, skipping... %s" % instagram_link)
+                print("Instagram link looks bad, skipping... %s" %
+                    instagram_link)
+                continue
+            if instagram_link in existing_instagram_links:
+                print("Instagram link already exists, skipping... %s" %
+                    instagram_link)
                 continue
 
+            existing_instagram_links.add(instagram_link)
             twitter_text = item.text
             twitter_text = twitter_text.replace(tweet_link, '').strip()
             twitter_sn = item.user.screen_name

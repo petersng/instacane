@@ -17,10 +17,24 @@ class Twitter(object):
     def __init__(self, *args, **kwargs):
         self.twitter = self._get_twitter()
 
-    def search(self, query):
+    def search(self, query, num_pages=3):
+        all_results = []
         results = self.twitter.GetSearch(
             query, count=100, result_type='mixed')
-        return results
+        all_results, max_id = self._append_page(all_results,
+            results, results[0].id)
+        for i in range(0, num_pages - 1):
+            results = self.twitter.GetSearch(
+                query, count=100, max_id=max_id, result_type='mixed')
+            all_results, max_id = self._append_page(all_results, results, max_id)
+        return all_results
+
+    def _append_page(self, all_results, results, max_id):
+        for result in results:
+            all_results.append(result)
+            if result.id < max_id:
+                max_id = result.id
+        return all_results, max_id
 
     def _get_twitter(self):
         (consumer_key, consumer_secret,
