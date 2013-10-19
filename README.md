@@ -3,7 +3,7 @@ Instacane
 
 This is a service that pulls tweeted Instagram photos (or anything really) from Twitter, pulls it's relevant Instagram data, and serves them out there for your viewing please.  The photos are displayed in a grid and change position with the ebb and flow of Twitter tweets/retweets.
 
-It was made in the hours before Hurricane Irene in 2011 and redeployed for Hurricane Sandy in 2012 by @chris_ackermann and @petersng.  This is much of the source code for it, cleaned up, and sanitized for the masses.
+It was made in the hours before Hurricane Irene in 2011 and redeployed for Hurricane Sandy in 2012 by [@chris_ackermann](http://twitter.com/chris_ackermann "Chris Ackermann")and [@petersng](http://twitter.com/petersng "Peter Ng").  This is much of the source code for it, cleaned up, and sanitized for the masses.
 
 Here is some of the press about it:
 
@@ -65,3 +65,7 @@ Possible improvements:
 * If served as static page, directly upload and serve from S3/Cloudfront, rather than worry about scaling instances/machines.
 * Add support for Instagram video.
 * Add support for Vines?
+
+---
+
+Copyright (C) 2013 Chris Ackermann + Peter S. Ng
