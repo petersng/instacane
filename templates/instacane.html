@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="Instacane"/>
+	<meta property="og:description" content="The story of Hurricane Sandy told through Instagram"/>
+	<meta property="og:image" content="https://si0.twimg.com/profile_images/1515962221/instacane.png"/>
+	<meta property="fb:app_id" content="482628108444576"/>
+	<meta property="og:site_name" content="Instacane"/>
+	<meta property="og:url" content="http://instacane.com"/>
+	<title>{{ title }}</title>
+	<meta name="author" content="Chris Ackermann + Peter Ng">
+
+	<style type="text/css">
+		body {
+    		color: white;
+    		background-color: black;
+		}
+		h1 {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 48px;
+		}
+		h2 {
+			position: absolute;
+			top: 85px;
+			width: 100%;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 18px;
+			font-weight: normal;
+		}
+		h3 {
+			position: absolute;
+			top: 190px;
+			left: 30px;
+			width: 80%;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 11px;
+			font-weight: normal;
+		}
+		h3 span {
+			color: white;
+			font-size: 11px;
+			font-family: Arial, Helvetica, sans-serif;
+	   		background: rgb(0, 0, 0); /* fallback color */
+		  	background: rgba(0, 0, 0, 0.7);
+		   	padding: 3px;
+			line-height: 17px;
+			font-weight: normal;
+		}
+		h4 {
+			color: transparent;
+			position: absolute;
+			top: 50px;
+			left: 30px;
+			width: 80%;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 11px;
+			font-weight: normal;
+		}
+		footer {
+			color: white;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 11px;
+			font-weight: normal;
+		}
+		a:link {
+			COLOR: white;
+			text-decoration: none;
+		}
+		a:visited {
+			COLOR: white;
+			text-decoration: none;
+		}
+		a:hover {
+			COLOR: white;
+			text-decoration: underline;
+		}
+		.image {
+			position: relative;
+			width: 100%;
+		}
+		.source-image{
+			position: relative;
+			top: 43px;
+			left: 70px;
+		}
+		#photo {
+			width: 250px;
+			height: 250px;
+			line-height: 0px;
+			color: transparent;
+			font-size: 10px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		#photo:hover img{
+			position: relative;
+			top: -20px;
+			left: -20px;
+			width: 280px;
+			height: 280px;
+			color: white;
+		}
+		#photo:hover h3 {
+				color: white;
+				position: absolute;
+				top: 0px;
+				left: -20px;
+				width: 280px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16px;
+				font-weight: normal;
+				background: rgb(0, 0, 0); /* fallback color */
+			  	background: rgba(0, 0, 0, 0.7);
+			   	padding: 3px;
+				line-height: 17px;
+			}
+		#photo:hover h4 {
+				color: white;
+				position: absolute;
+				top: 216px;
+				left: -20px;
+				width: 280px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 14px;
+				font-weight: normal;
+				background: rgb(0, 0, 0); /* fallback color */
+			  	background: rgba(0, 0, 0, 0.7);
+			   	padding: 3px;
+				line-height: 20px;
+			}
+		#shares {
+		    position: absolute;
+		    padding-top: 25px;
+		    padding-bottom: 40px;
+		}
+		#share_image {
+		    display:none;
+		}
+		#photo:hover #share_image {
+		    position: absolute;
+		    top: 220px;
+		    left: -20px;
+		    width: 280px;
+		    line-height: 17px;
+		    display:block;
+		}
+	</style>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-25361645-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</head>
+<body>
+	<h1 align="center">{{ page_header }}</h1>
+	<h2 align="center">{{ page_subheader }}</h2><br>
+	<div align="center">
+		<table border="0">
+			{% for i in range(0, len(latest_photos)) %}
+				{% if ((i % 4) == 0) %}
+				<tr>
+					{% end %}
+					<td height=300 width=300>
+						<div align="center">
+							<div id="photo" width="250" height="250" class="image" align="center">
+								<a href='{{ latest_photos[i]['instagram_url'] }}' target="_blank"><img src='{{ latest_photos[i]['direct_img_url'] }} 'width="250" height="250"/></a>
+								<h3>{{ latest_photos[i]['caption'] }}</h3>
+								{% if (latest_photos[i]['geolocation'] != "") %}
+									<h4>{{ latest_photos[i]['geolocation'] }}</h4>
+								{% end %}
+								<span id="share_image"><a href="https://twitter.com/share?url={{ latest_photos[i]['instagram_url'] }}&count=none&via=instacane&text={{ latest_photos[i]['caption'] }}&related=petersng,chris_ackermann&counturl={{ latest_photos[i]['instagram_url'] }}&hashtags=frankenstorm,hurricane" class="twitter-share-button" data-lang="en">Tweet</a></span>
+							</div>
+						</div>
+					</td>
+					{% if ((i % 4) == 3) %}
+				</tr>
+				{% end %}
+	 		{% end %}
+		</table>
+</body>
+<footer><br><br><br><a href="http://twitter.com/instacane" target="_blank">@instacane</a> &nbsp; ❧ &nbsp; built by <a href="http://twitter.com/chris_ackermann" target="_blank">@chris_ackermann</a> and <a href="http://twitter.com/petersng" target="_blank">@petersng</a> in the calm before the storm.  &nbsp; ❧ &nbsp; last freshened ~ {{ latest_ts }} UTC <br /><span id="shares"><a href="https://twitter.com/share?url=http://www.instacane.com&via=instacane&text=The story of Hurricane Sandy told through Instagram&related=petersng,chris_ackermann&counturl=http://www.instacane.com&hashtags=frankenstorm,hurricane" class="twitter-share-button" data-lang="en">Tweet</a></span><br><br></footer>
+</html>
