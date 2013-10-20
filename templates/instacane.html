@@ -107,49 +107,55 @@ Copyright (C) 2013 Chris Ackermann + Peter Ng. All rights reserved.
 			color: white;
 		}
 		#photo:hover h3 {
-				color: white;
-				position: absolute;
-				top: 0px;
-				left: -20px;
-				width: 280px;
-				font-family: Arial, Helvetica, sans-serif;
-				font-size: 16px;
-				font-weight: normal;
-				background: rgb(0, 0, 0); /* fallback color */
-			  	background: rgba(0, 0, 0, 0.7);
-			   	padding: 3px;
-				line-height: 17px;
-			}
+			color: white;
+			position: absolute;
+			top: 0px;
+			left: -20px;
+			width: 280px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			font-weight: normal;
+			background: rgb(0, 0, 0); /* fallback color */
+		  	background: rgba(0, 0, 0, 0.7);
+		   	padding: 3px;
+			line-height: 17px;
+		}
 		#photo:hover h4 {
-				color: white;
-				position: absolute;
-				top: 216px;
-				left: -20px;
-				width: 280px;
-				font-family: Arial, Helvetica, sans-serif;
-				font-size: 14px;
-				font-weight: normal;
-				background: rgb(0, 0, 0); /* fallback color */
-			  	background: rgba(0, 0, 0, 0.7);
-			   	padding: 3px;
-				line-height: 20px;
-			}
+			color: white;
+			position: absolute;
+			top: 216px;
+			left: -20px;
+			width: 280px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 14px;
+			font-weight: normal;
+			background: rgb(0, 0, 0); /* fallback color */
+		  	background: rgba(0, 0, 0, 0.7);
+		   	padding: 3px;
+			line-height: 20px;
+		}
 		#shares {
-		    position: absolute;
-		    padding-top: 25px;
-		    padding-bottom: 40px;
-		}
-		#share_image {
-		    display:none;
-		}
-		#photo:hover #share_image {
-		    position: absolute;
-		    top: 220px;
-		    left: -20px;
-		    width: 280px;
-		    line-height: 17px;
-		    display:block;
-		}
+            position: absolute;
+            padding-top: 25px;
+            padding-bottom: 40px;
+        }
+        #share_image {
+            display:none;
+        }
+        #photo:hover #share_image {
+            position: absolute;
+            top: 220px;
+            left: -20px;
+            width: 280px;
+            line-height: 17px;
+            display:block;
+        }
+        #footer-shares {
+            position: absolute;
+            margin-top: -3px;
+            margin-left: 10px;
+            margin-bottom: 0px;
+        }
 	</style>
 	<script type="text/javascript">
 
@@ -162,13 +168,13 @@ Copyright (C) 2013 Chris Ackermann + Peter Ng. All rights reserved.
 	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-
 	</script>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </head>
 <body>
 	<h1 align="center">{{ page_header }}</h1>
-	<h2 align="center">{{ page_subheader }}</h2><br>
+	<h2 align="center">{{ page_subheader }}</h2>
+	<h2 align="center" id="shares"><a href="https://twitter.com/share?url=http://www.instacane.com&via=instacane&text=The story of Hurricane Sandy told through Instagram&related=petersng,chris_ackermann&counturl=http://www.instacane.com&hashtags=frankenstorm,hurricane" class="twitter-share-button" data-lang="en"></a></h2><br><br>
 	<div align="center">
 		<table border="0">
 			{% for i in range(0, len(latest_photos)) %}
@@ -183,7 +189,9 @@ Copyright (C) 2013 Chris Ackermann + Peter Ng. All rights reserved.
 								{% if (latest_photos[i]['geolocation'] != "") %}
 									<h4>{{ latest_photos[i]['geolocation'] }}</h4>
 								{% end %}
+								{% if tweet_button_on_images %}
 								<span id="share_image"><a href="https://twitter.com/share?url={{ latest_photos[i]['instagram_url'] }}&count=none&via=instacane&text={{ latest_photos[i]['caption'] }}&related=petersng,chris_ackermann&counturl={{ latest_photos[i]['instagram_url'] }}&hashtags=frankenstorm,hurricane" class="twitter-share-button" data-lang="en">Tweet</a></span>
+								{% end %}
 							</div>
 						</div>
 					</td>
@@ -193,5 +201,5 @@ Copyright (C) 2013 Chris Ackermann + Peter Ng. All rights reserved.
 	 		{% end %}
 		</table>
 </body>
-<footer><br><br><br><a href="http://twitter.com/instacane" target="_blank">@instacane</a> &nbsp; ❧ &nbsp; built by <a href="http://twitter.com/chris_ackermann" target="_blank">@chris_ackermann</a> and <a href="http://twitter.com/petersng" target="_blank">@petersng</a> in the calm before the storm.  &nbsp; ❧ &nbsp; last freshened ~ {{ latest_ts }} UTC ❧ &nbsp; we are now on <a href="https://github.com/petersng/instacane">github</a>. <br /><span id="shares"><a href="https://twitter.com/share?url=http://www.instacane.com&via=instacane&text=The story of Hurricane Sandy told through Instagram&related=petersng,chris_ackermann&counturl=http://www.instacane.com&hashtags=frankenstorm,hurricane" class="twitter-share-button" data-lang="en">Tweet</a></span><br><br></footer>
+<footer><br><br><br><a href="http://twitter.com/instacane" target="_blank">@instacane</a> &nbsp; ❧ &nbsp; built by <a href="http://twitter.com/chris_ackermann" target="_blank">@chris_ackermann</a> and <a href="http://twitter.com/petersng" target="_blank">@petersng</a> in the calm before the storm.  &nbsp; ❧ &nbsp; last freshened ~ {{ latest_ts }} UTC ❧ &nbsp; we are now on <a href="https://github.com/petersng/instacane">github</a>. <span id="footer-shares"><a href="https://twitter.com/share?url=http://www.instacane.com&via=instacane&text=The story of Hurricane Sandy told through Instagram&related=petersng,chris_ackermann&counturl=http://www.instacane.com&hashtags=frankenstorm,hurricane" class="twitter-share-button" data-lang="en"></a></span><br><br></footer>
 </html>

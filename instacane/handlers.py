@@ -41,7 +41,7 @@ class InstacaneHandler(tornado.web.RequestHandler):
             '../templates/instacane.html', title=self.page_title,
             page_header=self.page_header, page_subheader=self.page_subheader,
             latest_photos=latest_photos, captions_enabled=captions_enabled,
-            latest_ts=latest_ts)
+            latest_ts=latest_ts, tweet_button_on_images=False)
 
 
 class InstacaneFeedHandler(tornado.web.RequestHandler):

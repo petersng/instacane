@@ -17,7 +17,7 @@ class Twitter(object):
     def __init__(self, *args, **kwargs):
         self.twitter = self._get_twitter()
 
-    def search(self, query, num_pages=3):
+    def search(self, query, num_pages=1):
         all_results = []
         results = self.twitter.GetSearch(
             query, count=100, result_type='mixed')

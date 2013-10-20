@@ -191,7 +191,7 @@ class MediaLoader(object):
         kws_hashtags = self._get_keywords_hashtags_query()
         query = "%s %s" % (kws_hashtags, domains)
         print("Twitter query is '%s'" % query)
-        return self.twitter.search(query)
+        return self.twitter.search(query, num_pages=3)
 
     def _get_block_list(self):
         block_list = self.config.get('userlist', 'block')
@@ -203,7 +203,8 @@ class MediaLoader(object):
         kws_hts = self.config.get('search', 'keywords_hashtags')
         if kws_hts != '':
             kws_hts = kws_hts.split(',')
-            kws_hts = [keyword.strip() for keyword in kws_hts]
+            kws_hts = [keyword.strip() for keyword in kws_hts
+                if keyword.strip() != '']
         return ' OR '.join(kws_hts)
 
     def _get_domains_query(self):
