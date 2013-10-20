@@ -71,6 +71,6 @@ Possible improvements:
 
 ---
 
-Released under GPL v2.
+Released under v2 of the GPL.
 
 Copyright (C) 2013 Chris Ackermann + Peter S. Ng
