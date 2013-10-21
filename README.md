@@ -59,11 +59,11 @@ and run this:
 
 The web service essentially pulls the recent data from memcache, runs it through the Tornado templating engine, and displays it.  You can run multiples of this service with different ports behind nginx, Apache, etc for better performance.   This has proven to be a pretty lightweight setup and has handled lots of traffic with one instance.
 
-The site is reachable here:
+Once started, the site is reachable on your localhost via:
 
     http://localhost:8080
 
-The JSON data is reachable here:
+The JSON data is reachable via:
 
     http://localhost:8080/feed
 
